@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>পথচিহ্ন — আমার বাংলাদেশ ভ্রমণ ম্যাপ</title>
+<meta name="description" content="বাংলাদেশের ৬৪ জেলার কতগুলো ঘুরেছেন? জেলা বাছাই করুন, বাকি জেলার তালিকা দেখুন আর শেয়ার কার্ড ডাউনলোড করুন।">
+<meta property="og:title" content="পথচিহ্ন — বাংলাদেশের কতটুকু ঘুরেছেন?">
+<meta property="og:description" content="৬৪ জেলার ভ্রমণ ম্যাপ বানান, বাকি জেলার তালিকা দেখুন, ফেসবুকে শেয়ার করুন।">
+<meta name="theme-color" content="#e8821a">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&display=swap">
+<style>
+:root{--or:#f28c1e;--dk:#140a04;--cd:rgba(20,10,4,.88);--cr:#fff1dc;--mu:#c9b79d;--tile:#2c2218;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;color:var(--cr);background:#e8821a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520'%3E%3Crect width='520' height='520' fill='%23e8821a'/%3E%3Cg fill='%23140a04'%3E%3Cpath d='M-10 40Q90 90 200 30Q110 120-10 85Z'/%3E%3Cpath d='M260 20Q380 80 530 10Q400 120 260 70Z'/%3E%3Cpath d='M40 190Q170 250 300 180Q180 290 40 240Z'/%3E%3Cpath d='M360 230Q450 280 540 220Q470 320 360 280Z'/%3E%3Cpath d='M-10 360Q100 420 230 350Q120 460-10 410Z'/%3E%3Cpath d='M290 380Q400 440 530 370Q410 490 290 440Z'/%3E%3C/g%3E%3C/svg%3E");font-family:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;line-height:1.55}
+.w{max-width:760px;margin:0 auto;padding:14px}
+.logo{font-weight:700;font-size:24px;padding:6px 0}.logo span{color:var(--dk);background:var(--or);padding:0 8px;border-radius:8px}
+.card{background:var(--cd);border-radius:20px;padding:18px;margin:14px 0;border:1px solid rgba(242,140,30,.35)}
+.hero{text-align:center}.hero small{color:var(--mu)}
+.big{font-size:clamp(64px,18vw,104px);font-weight:700;line-height:1.05;color:var(--or)}.big i{font-style:normal;font-size:.45em;color:var(--mu)}
+.rk{font-size:20px;font-weight:700;margin:4px 0 10px}
+.bar{height:10px;background:var(--tile);border-radius:10px;overflow:hidden}.bar i{display:block;height:100%;background:var(--or);width:0;transition:width .3s}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button{font:inherit;border:1px solid rgba(242,140,30,.5);background:transparent;color:var(--cr);padding:9px 16px;border-radius:999px;cursor:pointer}
+button.p{background:var(--or);color:var(--dk);border-color:var(--or);font-weight:700}
+.mb{overflow-x:auto}
+#map{display:grid;grid-template-columns:repeat(10,58px);grid-auto-rows:58px;gap:4px;min-width:620px}
+.t{border:0;border-radius:12px;background:linear-gradient(160deg,#33281c,#241b12);box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--c) 50%,transparent);color:var(--cr);font-size:11px;line-height:1.15;padding:2px;word-break:break-all;display:flex;align-items:center;justify-content:center;text-align:center;transition:transform .15s}
+.t:active{transform:scale(.93)}
+.t.v{background:linear-gradient(160deg,var(--c),color-mix(in srgb,var(--c) 70%,#000));box-shadow:0 3px 10px color-mix(in srgb,var(--c) 45%,transparent);color:var(--dk);font-weight:700}
+.lgd{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12px;color:var(--mu);margin-top:10px}.lgd i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px}
+.dvh{margin:12px 0 4px;font-weight:700}.dvh small{color:var(--mu);font-weight:400}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chips span{padding:3px 11px;border-radius:999px;font-size:13px;border:1.5px solid var(--c)}
+.dv{display:grid;grid-template-columns:84px 1fr 46px;gap:8px;align-items:center;margin:6px 0;font-size:14px}
+input{font:inherit;width:100%;background:var(--tile);color:var(--cr);border:1px solid rgba(242,140,30,.4);border-radius:12px;padding:10px 12px}
+canvas{width:100%;max-width:420px;display:block;margin:10px auto;border-radius:14px}
+.n{color:var(--mu);font-size:13px;margin:6px 0 0}
+footer{text-align:center;color:var(--dk);font-size:13px;padding:16px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="logo">🐅 পথ<span>চিহ্ন</span></div>
+
+<div class="card hero">
+<small>বাংলার বাঘের দেশে আপনার পথচলা</small>
+<div class="big"><span id="nv">০</span> <i>/ ৬৪</i></div>
+<div>জেলা ঘুরেছেন</div>
+<div class="rk" id="rk"></div>
+<div class="bar"><i id="pb"></i></div>
+</div>
+
+<div class="card">
+<b>যে জেলায় গিয়েছেন, সেখানে ট্যাপ করুন</b>
+<div class="row"><button id="all">সব বাছাই</button><button id="clr">সব মুছুন</button></div>
+<div class="mb"><div id="map"></div></div>
+<div class="lgd" id="lgd"></div>
+<p class="n">এটি জেলার আনুমানিক অবস্থানের টাইল ম্যাপ, ভৌগোলিক সীমানা নয়।</p>
+</div>
+
+<div class="card"><b>বিভাগ অনুযায়ী</b><div id="dvs"></div></div>
+
+<div class="card"><b>🧭 বাকি জেলা — ভবিষ্যতের ট্রিপের তালিকা</b><p class="n" id="rs"></p><div id="rep"></div>
+<div class="row"><button class="p" id="tx">⬇ রিপোর্ট (TXT)</button></div></div>
+
+<div class="card">
+<b>📸 আপনার শেয়ার কার্ড</b>
+<p class="n">নাম লিখলে কার্ডে বসবে (ঐচ্ছিক)</p>
+<input id="nm" maxlength="30" placeholder="আপনার নাম">
+<canvas id="cv" width="1080" height="1350"></canvas>
+<div class="row" id="dlr" style="justify-content:center"><button class="p" data-k="jpg">⬇ JPG</button><button class="p" data-k="png">⬇ PNG</button><button class="p" data-k="pdf">⬇ PDF</button></div>
+<p class="n" id="msg" style="text-align:center">ডাউনলোড করে ফেসবুক বা ইনস্টাগ্রামে পোস্ট করুন।</p>
+</div>
+<footer>© পথচিহ্ন · আপনার বাছাই শুধু আপনার ব্রাউজারেই থাকে</footer>
+</div>
+<script>
+const DV=["রংপুর","রাজশাহী","ময়মনসিংহ","সিলেট","ঢাকা","খুলনা","বরিশাল","চট্টগ্রাম"];
+const D="পঞ্চগড়|0|1|0,ঠাকুরগাঁও|0|0|1,দিনাজপুর|0|1|1,নীলফামারী|0|2|1,লালমনিরহাট|0|3|1,রংপুর|0|2|2,কুড়িগ্রাম|0|3|2,গাইবান্ধা|0|3|3,জয়পুরহাট|1|1|2,নওগাঁ|1|1|3,বগুড়া|1|2|3,নবাবগঞ্জ|1|0|4,নাটোর|1|1|4,পাবনা|1|2|4,সিরাজগঞ্জ|1|3|4,রাজশাহী|1|0|5,শেরপুর|2|4|2,জামালপুর|2|4|3,ময়মনসিংহ|2|5|3,নেত্রকোনা|2|6|3,সুনামগঞ্জ|3|7|2,সিলেট|3|8|2,হবিগঞ্জ|3|7|3,মৌলভীবাজার|3|8|3,টাঙ্গাইল|4|4|4,গাজীপুর|4|5|4,কিশোরগঞ্জ|4|6|4,নরসিংদী|4|7|4,মানিকগঞ্জ|4|3|5,ঢাকা|4|4|5,নারায়ণগঞ্জ|4|5|5,রাজবাড়ী|4|2|5,ফরিদপুর|4|2|6,মাদারীপুর|4|3|6,শরীয়তপুর|4|4|6,মুন্সীগঞ্জ|4|5|6,গোপালগঞ্জ|4|3|7,কুষ্টিয়া|5|1|5,মেহেরপুর|5|0|6,চুয়াডাঙ্গা|5|1|6,ঝিনাইদহ|5|0|7,যশোর|5|1|7,মাগুরা|5|2|7,নড়াইল|5|2|8,সাতক্ষীরা|5|0|8,খুলনা|5|1|8,বাগেরহাট|5|1|9,বরিশাল|6|4|7,ভোলা|6|5|7,ঝালকাঠি|6|3|8,পটুয়াখালী|6|4|8,বরগুনা|6|3|9,পিরোজপুর|6|2|9,ব্রাহ্মণবাড়িয়া|7|8|4,কুমিল্লা|7|7|5,ফেনী|7|8|5,খাগড়াছড়ি|7|9|5,চাঁদপুর|7|6|6,লক্ষ্মীপুর|7|7|6,নোয়াখালী|7|8|6,রাঙামাটি|7|9|6,চট্টগ্রাম|7|8|7,বান্দরবান|7|9|7,কক্সবাজার|7|9|8".split(",").map(s=>{const a=s.split("|");return{n:a[0],d:+a[1],c:+a[2],r:+a[3]}});
+const DC=["#f28c1e","#e5533d","#e3b341","#7bbf6a","#3fb5a3","#5aa0e0","#a77be0","#e07bb0"];
+const RK=[[0,"🐾 পথের ছানা"],[5,"🌿 বনের পথিক"],[15,"🌊 সুন্দরবনের সাথী"],[30,"🐅 ডোরাকাটা অভিযাত্রী"],[50,"🔥 রয়েল বেঙ্গল"],[64,"👑 বাংলার বাঘ — পুরো বাংলাদেশ জয়ী"]];
+const SP=["M-10 40Q90 90 200 30Q110 120-10 85Z","M260 20Q380 80 530 10Q400 120 260 70Z","M40 190Q170 250 300 180Q180 290 40 240Z","M360 230Q450 280 540 220Q470 320 360 280Z","M-10 360Q100 420 230 350Q120 460-10 410Z","M290 380Q400 440 530 370Q410 490 290 440Z"].map(p=>new Path2D(p));
+const bn=n=>String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
+const F="'Hind Siliguri','Noto Sans Bengali',sans-serif";
+let S={},NM="";
+try{S=JSON.parse(localStorage.getItem("pc_v")||"{}");NM=localStorage.getItem("pc_n")||""}catch(e){}
+const save=()=>{try{localStorage.setItem("pc_v",JSON.stringify(S));localStorage.setItem("pc_n",NM)}catch(e){}};
+const $=id=>document.getElementById(id),map=$("map"),cv=$("cv"),cx=cv.getContext("2d");
+$("nm").value=NM;
+D.forEach((x,i)=>{const b=document.createElement("button");b.className="t";b.textContent=x.n;b.style.setProperty("--c",DC[x.d]);b.style.gridColumn=x.c+1;b.style.gridRow=x.r+1;b.onclick=()=>{S[i]=S[i]?0:1;save();draw()};map.appendChild(b)});
+$("all").onclick=()=>{D.forEach((x,i)=>S[i]=1);save();draw()};
+$("clr").onclick=()=>{S={};save();draw()};
+$("nm").oninput=e=>{NM=e.target.value;save();card()};
+function cnt(){return D.filter((x,i)=>S[i]).length}
+function rank(v){return RK.filter(r=>v>=r[0]).pop()[1]}
+function draw(){
+  const v=cnt(),dv=DV.map(()=>[0,0]);
+  [...map.children].forEach((b,i)=>{b.className="t"+(S[i]?" v":"");dv[D[i].d][1]++;if(S[i])dv[D[i].d][0]++});
+  $("nv").textContent=bn(v);$("pb").style.width=v/64*100+"%";$("rk").textContent=rank(v);
+  $("dvs").innerHTML=DV.map((n,i)=>`<div class="dv"><span>${n}</span><div class="bar"><i style="width:${dv[i][0]/dv[i][1]*100}%"></i></div><span>${bn(dv[i][0])}/${bn(dv[i][1])}</span></div>`).join("");
+  $("lgd").innerHTML=DV.map((n,i)=>`<span><i style="background:${DC[i]}"></i>${n}</span>`).join("");
+  let h="";
+  DV.forEach((n,d)=>{const m=D.filter((x,i)=>x.d==d&&!S[i]);
+    if(!m.length){h+=`<div class="dvh" style="color:${DC[d]}">✅ ${n} বিভাগ সম্পূর্ণ!</div>`;return}
+    h+=`<div class="dvh">${n} বিভাগ <small>· আর ${bn(m.length)}টি বাকি${m.length<=3?" — প্রায় শেষ!":""}</small></div><div class="chips" style="--c:${DC[d]}">${m.map(x=>"<span>"+x.n+"</span>").join("")}</div>`});
+  $("rep").innerHTML=h;
+  $("rs").textContent=v==64?"অভিনন্দন! সব ৬৪ জেলা ঘোরা শেষ। 🎉":`ঘুরেছেন ${bn(v)}টি, বাকি ${bn(64-v)}টি জেলা। এই তালিকা থেকে পরের ট্রিপ ঠিক করুন।`;
+  card();
+}
+function rr(x,y,w,h,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+h,r);cx.arcTo(x+w,y+h,x,y+h,r);cx.arcTo(x,y+h,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
+function card(){
+  const v=cnt(),c=cx;
+  c.fillStyle="#e8821a";c.fillRect(0,0,1080,1350);
+  c.fillStyle="#140a04";
+  for(let ox=0;ox<1080;ox+=520)for(let oy=0;oy<1350;oy+=520){c.save();c.translate(ox,oy);SP.forEach(p=>c.fill(p));c.restore()}
+  c.fillStyle="rgba(20,10,4,.9)";rr(50,50,980,1250,36);c.fill();
+  c.textAlign="center";c.fillStyle="#f28c1e";c.font="700 40px "+F;c.fillText("🐅 পথচিহ্ন",540,128);
+  c.fillStyle="#fff1dc";c.font="400 38px "+F;c.fillText(NM?NM+" এখন পর্যন্ত ঘুরেছেন":"আমি বাংলাদেশের",540,190);
+  c.fillStyle="#f28c1e";c.font="700 130px "+F;c.fillText(bn(v)+" / ৬৪",540,320);
+  c.fillStyle="#fff1dc";c.font="700 36px "+F;c.fillText("জেলা ঘুরেছি · "+rank(v),540,378);
+  const P=84,X=(1080-P*10+6)/2,Y=410;
+  D.forEach((x,i)=>{
+    const px=X+x.c*P,py=Y+x.r*P,on=S[i];
+    c.fillStyle=on?DC[x.d]:"#2c2218";rr(px,py,78,78,12);c.fill();
+    if(!on){c.strokeStyle=DC[x.d];c.globalAlpha=.55;c.lineWidth=2.5;c.stroke();c.globalAlpha=1}
+    c.fillStyle=on?"#140a04":"#e6d6bd";
+    let s=17;c.font=(on?"700 ":"400 ")+s+"px "+F;
+    while(c.measureText(x.n).width>70&&s>9){s--;c.font=(on?"700 ":"400 ")+s+"px "+F}
+    c.fillText(x.n,px+39,py+44);
+  });
+  c.fillStyle="#c9b79d";c.font="400 28px "+F;c.fillText("আপনার বাংলাদেশ ভ্রমণ ম্যাপ বানান — পথচিহ্ন",540,1272);
+}
+const blob=(t,q)=>new Promise(r=>cv.toBlob(r,t,q));
+async function pdf(){
+  const j=new Uint8Array(await (await blob("image/jpeg",.92)).arrayBuffer()),e=new TextEncoder(),parts=[],o=[];let L=0;
+  const add=b=>{if(typeof b==="string")b=e.encode(b);parts.push(b);L+=b.length};
+  const ob=(n,a)=>{o[n]=L;add(n+" 0 obj\n");a.forEach(add);add("\nendobj\n")};
+  add("%PDF-1.4\n");
+  ob(1,["<</Type/Catalog/Pages 2 0 R>>"]);ob(2,["<</Type/Pages/Kids[3 0 R]/Count 1>>"]);
+  ob(3,["<</Type/Page/Parent 2 0 R/MediaBox[0 0 1080 1350]/Resources<</XObject<</I 4 0 R>>>>/Contents 5 0 R>>"]);
+  ob(4,["<</Type/XObject/Subtype/Image/Width 1080/Height 1350/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length "+j.length+">>\nstream\n",j,"\nendstream"]);
+  const q="q 1080 0 0 1350 0 0 cm /I Do Q";ob(5,["<</Length "+q.length+">>\nstream\n"+q+"\nendstream"]);
+  const x=L;let t="xref\n0 6\n0000000000 65535 f \n";for(let i=1;i<6;i++)t+=String(o[i]).padStart(10,"0")+" 00000 n \n";
+  add(t+"trailer\n<</Size 6/Root 1 0 R>>\nstartxref\n"+x+"\n%%EOF");
+  return new Blob(parts,{type:"application/pdf"});
+}
+let DL=null;
+(async()=>{try{DL=(window.claude&&claude.use)?await claude.use("downloads"):null}catch(e){}
+  if(!DL)DL={save:({filename,data})=>{const o=data instanceof Blob?data:new Blob([data]),l=document.createElement("a");l.href=URL.createObjectURL(o);l.download=filename;document.body.appendChild(l);l.click();l.remove();return Promise.resolve()}}})();
+$("dlr").onclick=async e=>{
+  const k=e.target.dataset&&e.target.dataset.k;if(!k||!DL)return;
+  try{
+    const d=k==="pdf"?await pdf():await blob(k==="png"?"image/png":"image/jpeg",.92);
+    await DL.save({filename:"pothochinho-map."+k,data:d});$("msg").textContent="✅ কার্ড তৈরি। এবার ফেসবুকে পোস্ট করুন!";
+  }catch(err){if(!err||err.code!=="declined")$("msg").textContent="ডাউনলোড করা গেল না, আবার চেষ্টা করুন।"}
+};
+function txt(){const g=a=>D.filter((x,i)=>!!S[i]==a).map(x=>x.n).join(", ")||"—";
+  let t="পথচিহ্ন — আমার ভ্রমণ রিপোর্ট\n\nঘুরেছি ("+bn(cnt())+"টি): "+g(true)+"\n\nবাকি ("+bn(64-cnt())+"টি), বিভাগ অনুযায়ী:\n";
+  DV.forEach((n,d)=>{const m=D.filter((x,i)=>x.d==d&&!S[i]).map(x=>x.n);if(m.length)t+="• "+n+": "+m.join(", ")+"\n"});return t}
+$("tx").onclick=async()=>{if(!DL)return;try{await DL.save({filename:"pothochinho-report.txt",data:txt()})}catch(e){}};
+draw();
+if(document.fonts&&document.fonts.load)document.fonts.load("700 20px 'Hind Siliguri'","বাংলা").then(card).catch(()=>{});
+</script>
+</body>
+</html>
